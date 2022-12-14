@@ -8,7 +8,6 @@
   max-width: $maxWidth;
   width: 100%;
   margin: 0 auto;
-  padding: 30px;
 
   .UISectionTitle {
     font-size: $subTitleFontSize;
@@ -19,10 +18,11 @@
   }
 }
 
-.UISection.single {
-  max-width: 600px;
-  margin: 0 auto;
-}
+// .UISection.single {
+//   .UISectionContent {
+//     justify-self: center;
+//   }
+// }
 
 .UISection.twice {
   .UISectionContent {

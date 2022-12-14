@@ -1,0 +1,27 @@
+@import "../../../styles/vars.scss";
+
+.UITasksList {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+
+  .UITasksListHeader {
+    cursor: default;
+    .UITaskItemCell {
+      background: $accent;
+      color: $lightTextColor;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .UITasksList {
+    gap: 50px;
+
+    .UITasksListHeader {
+      display: none;
+    }
+  }
+}

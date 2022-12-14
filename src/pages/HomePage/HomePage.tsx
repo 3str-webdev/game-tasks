@@ -1,11 +1,9 @@
 import { FC } from "react";
-import Section from "../../components/UI/Section/Section";
+import Section, { SectionVariants } from "../../components/UI/Section/Section";
 import Select from "../../components/UI/Select/Select";
 import { BsChevronCompactDown } from "react-icons/bs";
 
-interface IProps {}
-
-const HomePage: FC<IProps> = () => {
+const HomePage: FC = () => {
   return (
     <section className="homePage">
       <section className="introductionSection">
@@ -21,7 +19,7 @@ const HomePage: FC<IProps> = () => {
       </section>
 
       <div className="sectionWrapper">
-        <Section title="Немного о проекте" variant={"twice"}>
+        <Section title="Немного о проекте" variant={SectionVariants.twice}>
           <div className="text">
             Наш проект нацелен на создание{" "}
             <Select variant="underline">сборника</Select> задач для учеников 5-7
@@ -40,8 +38,8 @@ const HomePage: FC<IProps> = () => {
         </Section>
       </div>
 
-      <div className="sectionWrapper">
-        <Section title="Амбиции" variant={"single"}>
+      <div className="sectionWrapper single">
+        <Section title="Амбиции" variant={SectionVariants.single}>
           <div>
             Мы упорно работаем над <Select>систематизацией</Select>,
             доступностью для детей и содержимым, чтобы дети легко могли понимать

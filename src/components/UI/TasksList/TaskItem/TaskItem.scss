@@ -1,0 +1,58 @@
+@import "../../../../styles/vars.scss";
+
+.UITaskItem {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+
+  color: $textColor;
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+
+  .UITaskItemCell {
+    text-align: center;
+    border: 1px solid $accent;
+    border-radius: $smallBorderRadius;
+
+    padding: 10px 15px;
+  }
+}
+
+.UITaskItem:hover {
+  .UITaskItemCell {
+    background: $hoverAccent;
+  }
+}
+
+@media (max-width: 650px) {
+  .UITaskItem {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+
+    box-shadow: $cardShadow;
+    border-radius: $middleBorderRadius;
+
+    .UITaskItemCell {
+      border: none;
+      padding: 20px 15px;
+    }
+
+    .UITaskItemCell:nth-child(1) {
+      border-radius: 0;
+      background: $accent;
+      color: $lightTextColor;
+    }
+  }
+
+  .UITaskItem:hover {
+    .UITaskItemCell {
+      background: none;
+    }
+
+    .UITaskItemCell:nth-child(1) {
+      background: $accent;
+    }
+  }
+}

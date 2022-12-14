@@ -2,10 +2,15 @@ import { FC, ReactNode } from "react";
 
 import "./Section.scss";
 
+export enum SectionVariants {
+  single = "single",
+  twice = "twice",
+}
+
 interface SectionProps {
   title: string;
   children: ReactNode;
-  variant?: "single" | "twice";
+  variant?: SectionVariants;
   titleProps?: Object;
   contentProps?: Object;
 }
@@ -13,7 +18,7 @@ interface SectionProps {
 const Section: FC<SectionProps> = ({
   title,
   children,
-  variant = "single",
+  variant = SectionVariants.single,
   titleProps,
   contentProps,
   ...props

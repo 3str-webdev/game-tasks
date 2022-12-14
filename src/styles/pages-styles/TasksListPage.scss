@@ -1,0 +1,15 @@
+.tasksListPage {
+  .tableWrapper {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+
+    .errorMessage {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      font-size: $bigTextFontSize;
+    }
+  }
+}

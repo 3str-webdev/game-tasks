@@ -3,16 +3,21 @@ $bgColor: #f1f1f1;
 $accent: #111;
 $textColor: #111;
 $lightTextColor: #f1f1f1;
+$hoverAccent: #e5e5e5;
 
 // Sizing
 $maxWidth: 1200px;
 $pagePadding: 50px;
+$loaderSize: 50px;
 
 // Font properties
 $fontSize: 16px;
 $bigTextFontSize: 1.1rem;
 $subTitleFontSize: 1.6rem;
 $titleFontSize: 3rem;
+
+// Shadow
+$cardShadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 // Other
 $smallBorderRadius: 5px;

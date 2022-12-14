@@ -30,6 +30,16 @@
   }
 
   .sectionWrapper {
-    padding-top: 100px;
+    padding: 100px 30px 30px 30px;
+  }
+
+  .sectionWrapper.single {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    section {
+      max-width: 600px;
+    }
   }
 }

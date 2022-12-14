@@ -2,9 +2,7 @@ import { FC } from "react";
 import Select from "../UI/Select/Select";
 import { BsGithub } from "react-icons/bs";
 
-interface IProps {}
-
-const Footer: FC<IProps> = () => {
+const Footer: FC = () => {
   return (
     <footer className="react-footer">
       <Select variant={"underline"}>
