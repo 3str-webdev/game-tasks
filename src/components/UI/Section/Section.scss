@@ -1,0 +1,44 @@
+@import "../../../styles/vars.scss";
+
+.UISection {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  max-width: $maxWidth;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+
+  .UISectionTitle {
+    font-size: $subTitleFontSize;
+  }
+
+  .UISectionContent {
+    @include textSettings($fontSize);
+  }
+}
+
+.UISection.single {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.UISection.twice {
+  .UISectionContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+
+    gap: 70px;
+  }
+}
+
+@media (max-width: 660px) {
+  .UISection.twice {
+    .UISectionContent {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+  }
+}

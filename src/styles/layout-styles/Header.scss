@@ -1,3 +1,172 @@
 .react-header {
   flex: 0 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: $headerPadding;
+
+  background: $bgColor;
+  border-bottom: 1px solid black;
+
+  .projectLabel {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 10px 15px;
+
+    .projectName {
+      color: $bgColor;
+      font-size: 1.2rem;
+
+      z-index: 2;
+    }
+
+    .movingBg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+
+      background: black;
+      border-radius: $smallBorderRadius;
+
+      z-index: 1;
+
+      animation: rotate 6s ease-out infinite;
+    }
+  }
+
+  .navigate {
+    display: flex;
+    align-items: center;
+
+    .list {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+
+      .link {
+        position: relative;
+        text-decoration: none;
+        color: $textColor;
+        font-weight: 500;
+        padding: 7px 5px;
+      }
+
+      .link::before {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 50%;
+        width: 0;
+        transform: translateX(-50%);
+        height: 2px;
+        background: $accent;
+        border-radius: 5px;
+
+        transition: width 0.4s;
+      }
+
+      .link.active::before,
+      .link:hover::before {
+        width: 100%;
+      }
+    }
+  }
+
+  .burger {
+    display: none;
+    position: relative;
+    width: 45px;
+    height: 45px;
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .burger::before,
+  .burger::after {
+    content: "";
+    position: absolute;
+
+    height: 2px;
+    width: 35px;
+
+    background: $accent;
+    border-radius: 5px;
+
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .burger::before {
+    top: 15px;
+  }
+
+  .burger::after {
+    bottom: 15px;
+  }
+}
+
+@keyframes rotate {
+  0%,
+  100% {
+    left: 0;
+    width: 0;
+  }
+  25% {
+    left: 0;
+    width: 100%;
+  }
+  50% {
+    left: 100%;
+    width: 0;
+  }
+  75% {
+    left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .react-header {
+    .navigate {
+      position: fixed;
+      height: 100vh;
+      width: 100%;
+      max-width: 400px;
+
+      align-items: center;
+      justify-content: center;
+
+      background: $bgColor;
+      box-shadow: 0 -5px 20px rgba($color: $accent, $alpha: 0.2);
+
+      z-index: 10;
+      top: 0;
+      right: calc(-100% - 70px);
+
+      transition: right 0.4s;
+
+      .list {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+      }
+    }
+    .navigate.active {
+      right: 0;
+    }
+
+    .burger {
+      display: block;
+    }
+  }
 }

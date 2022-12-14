@@ -1,0 +1,35 @@
+.homePage {
+  padding-left: 0;
+  padding-right: 0;
+
+  .introductionSection {
+    padding: 30px;
+    width: 100%;
+    min-height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+
+    border-bottom: 1px solid $accent;
+
+    .introductionText {
+      h2 {
+        text-align: center;
+        font-size: $titleFontSize;
+      }
+
+      p {
+        text-align: center;
+        font-size: $bigTextFontSize;
+        padding-top: 20px;
+      }
+    }
+  }
+
+  .sectionWrapper {
+    padding-top: 100px;
+  }
+}

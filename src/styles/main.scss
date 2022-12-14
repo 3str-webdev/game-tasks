@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body,
@@ -12,4 +13,16 @@ html,
   min-height: 100vh;
 
   overflow: hidden;
+}
+
+body {
+  background: $bgColor;
+  font-family: "Montserrat", sans-serif;
+
+  color: $textColor;
+}
+
+// Dev helper
+.selected {
+  outline: 1px solid $accent;
 }

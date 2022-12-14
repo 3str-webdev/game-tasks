@@ -1,0 +1,32 @@
+// Colors
+$bgColor: #f1f1f1;
+$accent: #111;
+$textColor: #111;
+$lightTextColor: #f1f1f1;
+
+// Sizing
+$maxWidth: 1200px;
+$pagePadding: 50px;
+
+// Font properties
+$fontSize: 16px;
+$bigTextFontSize: 1.1rem;
+$subTitleFontSize: 1.6rem;
+$titleFontSize: 3rem;
+
+// Other
+$smallBorderRadius: 5px;
+$middleBorderRadius: 7px;
+$bigBorderRadius: 10px;
+
+@mixin textSettings($fsz) {
+  font-size: $fsz;
+  line-height: 2em;
+}
+
+//Header
+$headerPadding: 15px 30px;
+
+// Footer
+$footerPadding: 70px 50px;
+$footerBg: $accent;

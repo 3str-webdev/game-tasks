@@ -1,0 +1,39 @@
+@import "./Home.scss";
+
+.textSection {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  max-width: $maxWidth;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+
+  .sectionTitle {
+    font-size: $subTitleFontSize;
+  }
+
+  .sectionContent {
+    @include textSettings($fontSize);
+  }
+}
+
+.textSection.twice {
+  .sectionContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+
+    gap: 70px;
+  }
+}
+
+@media (max-width: 660px) {
+  .textSection.twice {
+    .sectionContent {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+  }
+}
