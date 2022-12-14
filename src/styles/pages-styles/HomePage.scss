@@ -27,6 +27,12 @@
         padding-top: 20px;
       }
     }
+
+    .iconWrapper {
+      .movingArrow {
+        animation: up_down 1s linear infinite;
+      }
+    }
   }
 
   .sectionWrapper {
@@ -41,5 +47,18 @@
     section {
       max-width: 600px;
     }
+  }
+}
+
+@keyframes up_down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  75% {
+    transform: translateY(10px);
   }
 }

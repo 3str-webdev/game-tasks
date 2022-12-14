@@ -13,8 +13,8 @@ const HomePage: FC = () => {
             Вас приветствует команда проекта "Игровые задачи". Добро пожаловать!
           </p>
         </div>
-        <div>
-          <BsChevronCompactDown size={70} />
+        <div className="iconWrapper">
+          <BsChevronCompactDown size={70} className="movingArrow" />
         </div>
       </section>
 

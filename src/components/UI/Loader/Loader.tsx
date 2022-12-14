@@ -14,7 +14,7 @@ const Loader: FC<ILoaderProps> = ({ isLoading }) => {
     if (isLoading) {
       timout = setTimeout(() => {
         setIsShow(true);
-      }, 400);
+      }, 300);
     } else {
       setIsShow(false);
       clearTimeout(timout);
