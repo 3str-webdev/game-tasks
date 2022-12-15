@@ -4,5 +4,5 @@ export interface ITask {
   theme: string;
   title: string;
   text: string;
-  answer: string | number;
+  answer: string;
 }

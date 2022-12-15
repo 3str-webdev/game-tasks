@@ -3,7 +3,7 @@ import "./Button.scss";
 
 interface ButtonProps {
   value: string | ReactNode;
-  props: any;
+  props?: any;
 }
 
 const Button: FC<ButtonProps> = ({ value, ...props }) => {

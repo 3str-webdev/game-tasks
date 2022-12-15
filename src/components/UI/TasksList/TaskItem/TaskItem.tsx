@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
-import { ITask } from "../../../../types/taskType";
+import { ITask } from "../../../../types/types";
 
 import "./TaskItem.scss";
 

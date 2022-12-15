@@ -1,9 +1,18 @@
 @import "./HomePage.scss";
 @import "./TasksListPage.scss";
+@import "./TaskPage.scss";
 
 .page {
   max-width: $maxWidth;
   width: 100%;
   margin: 0 auto;
   padding: $pagePadding;
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  font-size: $bigTextFontSize;
 }

@@ -8,7 +8,9 @@
   color: $lightTextColor;
   background: $accent;
 
-  border-radius: $buttonBorderRadius;
+  border-radius: $smallBorderRadius;
+
+  font-family: "Montserrat", sans-serif;
 
   cursor: pointer;
 }

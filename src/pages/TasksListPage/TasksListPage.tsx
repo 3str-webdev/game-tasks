@@ -1,15 +1,12 @@
 import { FC } from "react";
-import Loader from "../../components/UI/Loader/Loader";
+import LoadWrapper from "../../components/LoadWrapper/LoadWrapper";
 import Section from "../../components/UI/Section/Section";
 import TasksList from "../../components/UI/TasksList/TasksList";
-import { VscError } from "react-icons/vsc";
 
-import { useFetch } from "../../hooks/useFetch";
-import { getTasksRequest } from "../../requests/requests";
-import { ITask } from "../../types/taskType";
+import { useGetAllTasksQuery } from "../../store/tasks/tasks.api";
 
 const TasksListPage: FC = () => {
-  const { response, isLoading, error } = useFetch<ITask[]>(getTasksRequest);
+  const { isError, isLoading, data: tasks } = useGetAllTasksQuery();
 
   return (
     <section className="page tasksListPage">
@@ -20,18 +17,11 @@ const TasksListPage: FC = () => {
           задачами для Вас
         </div>
       </Section>
-
-      <section className="tableWrapper">
-        {isLoading ? (
-          <Loader isLoading={isLoading} />
-        ) : error ? (
-          <div className="errorMessage">
-            <VscError size={26} /> Что-то пошло не так...
-          </div>
-        ) : (
-          <TasksList tasks={response} />
-        )}
-      </section>
+      <div className="tableWrapper">
+        <LoadWrapper isError={isError} isLoading={isLoading}>
+          <TasksList tasks={tasks} />
+        </LoadWrapper>
+      </div>
     </section>
   );
 };

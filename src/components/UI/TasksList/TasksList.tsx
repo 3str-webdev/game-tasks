@@ -1,18 +1,18 @@
 import { FC, memo } from "react";
-import { ITask } from "../../../types/taskType";
+import { ITask } from "../../../types/types";
 import List from "../../List/List";
 import TaskItem from "./TaskItem/TaskItem";
 
 import "./TasksList.scss";
 
 interface ITasksList {
-  tasks: ITask[] | null;
+  tasks: ITask[] | undefined;
 }
 
 const TasksList: FC<ITasksList> = ({ tasks }) => {
   return (
     <div className="UITasksList">
-      {tasks !== null ? (
+      {tasks !== undefined ? (
         tasks.length > 0 ? (
           <>
             <div className="UITaskItem UITasksListHeader">

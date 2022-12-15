@@ -1,0 +1,35 @@
+.controlls {
+  padding: $pagePadding;
+
+  button {
+    font-size: $bigTextFontSize;
+  }
+}
+
+.taskPage {
+  .taskCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .taskInfoBlock {
+      align-self: flex-start;
+    }
+
+    .taskTitle {
+      font-size: $subTitleFontSize;
+    }
+
+    .taskSubTitle {
+      padding-top: 8px;
+      font-size: $smallTextFontSize;
+      color: #b0b0b0;
+    }
+
+    .taskText {
+      padding-top: 50px;
+
+      @include textSettings($fontSize);
+    }
+  }
+}
