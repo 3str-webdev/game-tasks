@@ -1,14 +1,22 @@
-import { FC } from "react";
+import { FC, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Button from "../../components/UI/Button/Button";
 import LoadWrapper from "../../components/LoadWrapper/LoadWrapper";
 
 import { useParams } from "react-router-dom";
 import { useGetTaskByIdQuery } from "../../store/tasks/tasks.api";
+import HtmlDiv from "../../components/HtmlDiv/HtmlDiv";
 
 const TaskPage: FC = () => {
   const currentTaskId = useParams().taskId ?? "";
   const { isError, isLoading, data: task } = useGetTaskByIdQuery(currentTaskId);
+
+  const [isShowAnswer, setIsShowAnswer] = useState<boolean>(false);
+
+  const hiddenTaskAnswerRef = useRef<HTMLDivElement>(null);
+
+  const hiddenTaskAnswerHeight =
+    hiddenTaskAnswerRef.current?.getBoundingClientRect().height;
 
   return (
     <>
@@ -21,11 +29,45 @@ const TaskPage: FC = () => {
       <section className="page taskPage">
         <div className="taskCard">
           <LoadWrapper isError={isError} isLoading={isLoading}>
-            <div className="taskTitle taskInfoBlock">{task?.title}</div>
-            <div className="taskSubTitle taskInfoBlock">
-              Тема задачи • {task?.theme}
+            <HtmlDiv
+              content={task?.title}
+              className="taskTitle taskInfoBlock"
+            />
+
+            <HtmlDiv
+              content={`Тема задачи • ${task?.theme}`}
+              className="taskSubTitle taskInfoBlock"
+            />
+
+            <HtmlDiv className="taskText taskInfoBlock" content={task?.text} />
+
+            <div className="taskAnswerWrapper taskInfoBlock">
+              <div
+                className="hiddenTaskAnswer"
+                ref={hiddenTaskAnswerRef}
+                dangerouslySetInnerHTML={{
+                  __html: task !== undefined ? task?.answer : "",
+                }}
+              />
+
+              <span className="showAnswerToggle">
+                <Button
+                  value={isShowAnswer ? "×" : "+"}
+                  width={31}
+                  height={31}
+                  onClick={() => setIsShowAnswer(!isShowAnswer)}
+                />{" "}
+                <p>Ответ</p>
+              </span>
+
+              <HtmlDiv
+                content={task?.answer}
+                className={"taskAnswer"}
+                style={{
+                  height: isShowAnswer ? hiddenTaskAnswerHeight : 0,
+                }}
+              />
             </div>
-            <div className="taskText taskInfoBlock">{task?.text}</div>
           </LoadWrapper>
         </div>
       </section>

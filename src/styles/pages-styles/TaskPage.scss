@@ -27,9 +27,44 @@
     }
 
     .taskText {
-      padding-top: 50px;
+      padding-top: 40px;
 
       @include textSettings($fontSize);
+    }
+
+    .taskAnswerWrapper {
+      padding-top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .showAnswerToggle {
+        display: flex;
+        align-items: center;
+
+        gap: 15px;
+
+        button {
+          display: grid;
+          place-items: center;
+          font-size: $subTitleFontSize;
+          padding: 0;
+        }
+      }
+
+      .hiddenTaskAnswer {
+        position: absolute;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .taskAnswer {
+        height: 0px;
+        padding-left: 10px;
+        border-left: 2px solid $accent;
+        overflow: hidden;
+        transition: height 0.25s;
+      }
     }
   }
 }
