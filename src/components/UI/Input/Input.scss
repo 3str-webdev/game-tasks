@@ -1,0 +1,32 @@
+@import "../../../styles/vars.scss";
+
+.UIInput {
+  position: relative;
+
+  .UIInputPlaceholder {
+    pointer-events: none;
+    top: 50%;
+    left: 0;
+    position: absolute;
+    font-size: 14px;
+
+    transform: translateY(-50%);
+    transition: all 0.2s;
+  }
+
+  .UIInputTextField {
+    width: 100%;
+    padding: 8px 0px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid $accent;
+    background: $bgColor;
+
+    letter-spacing: 1px;
+  }
+
+  .UIInputTextField:focus + .UIInputPlaceholder {
+    top: -$fontSize + 5;
+    font-size: 11px;
+  }
+}

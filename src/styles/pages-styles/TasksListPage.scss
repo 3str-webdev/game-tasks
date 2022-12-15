@@ -2,6 +2,14 @@
   .tableWrapper {
     padding-top: 100px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    .searchInputWrapper {
+      align-self: flex-start;
+      max-width: 350px;
+      width: 100%;
+    }
   }
 }
