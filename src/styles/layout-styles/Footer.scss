@@ -1,20 +1,84 @@
 .react-footer {
   flex: 0 0 auto;
+
+  display: flex;
+  justify-content: space-between;
   background-color: $footerBg;
   padding: $footerPadding;
   margin-top: 150px;
 
-  a {
+  .gh-link {
     text-decoration: underline;
     color: $lightTextColor;
-    margin: 0 auto;
     h2 {
       display: flex;
       align-items: center;
 
       gap: 10px;
 
-      font-size: $bigTextFontSize;
+      font-size: $fontSize;
+    }
+  }
+
+  .foolerBlocks {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 30px;
+
+    .footerBlock {
+      color: $softContrast;
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+
+        .link {
+          position: relative;
+          color: $softContrast;
+          text-decoration: none;
+          padding: 5px;
+        }
+
+        .link::before {
+          position: absolute;
+          content: "▶";
+
+          left: -25px;
+          top: 50%;
+          transform: translateY(-50%);
+          opacity: 0;
+          transition: all 0.1s;
+        }
+
+        .link:hover::before {
+          opacity: 1;
+          left: -20px;
+          transition: opacity 0.1s;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .react-footer {
+    flex-direction: column;
+
+    .foolerBlocks {
+      padding-top: 50px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media (max-width: 440px) {
+  .react-footer {
+    .foolerBlocks {
+      flex-direction: column;
+      
     }
   }
 }
