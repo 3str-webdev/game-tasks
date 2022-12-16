@@ -11,26 +11,19 @@ interface SectionProps {
   title: string;
   children: ReactNode;
   variant?: SectionVariants;
-  titleProps?: Object;
-  contentProps?: Object;
+  className?: string;
 }
 
 const Section: FC<SectionProps> = ({
   title,
   children,
   variant = SectionVariants.single,
-  titleProps,
-  contentProps,
-  ...props
+  className,
 }) => {
   return (
-    <section className={`UISection ${variant}`} {...props}>
-      <h3 className="UISectionTitle" {...titleProps}>
-        {title}
-      </h3>
-      <div className="UISectionContent" {...contentProps}>
-        {children}
-      </div>
+    <section className={`UISection ${variant} ${className}`}>
+      <h3 className="UISectionTitle">{title}</h3>
+      <div className="UISectionContent">{children}</div>
     </section>
   );
 };

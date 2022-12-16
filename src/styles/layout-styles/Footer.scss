@@ -62,7 +62,7 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: $footerFirstWidthBreakpoint) {
   .react-footer {
     flex-direction: column;
 
@@ -74,7 +74,7 @@
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: $footerSecondWidthBreakpoint) {
   .react-footer {
     .foolerBlocks {
       flex-direction: column;

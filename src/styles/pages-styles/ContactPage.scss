@@ -1,0 +1,13 @@
+.contactPage {
+  .contactSection {
+    padding: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+    .contactPage {
+        .contactSection {
+            // font-size: ;
+        }
+    }
+}
