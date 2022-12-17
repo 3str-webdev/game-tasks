@@ -3,9 +3,6 @@ import { ITask } from "../../../../../types/types";
 import { VscTrash } from "react-icons/vsc";
 
 import { IPostRequest } from "../../../../../types/types";
-import { MutationTrigger } from "@reduxjs/toolkit/dist/query/react/buildHooks";
-import { MutationDefinition } from "@reduxjs/toolkit/dist/query";
-import { BaseQueryFn } from "@reduxjs/toolkit/dist/query";
 
 import "./DeleteTasksItem.scss";
 
