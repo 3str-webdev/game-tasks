@@ -7,10 +7,16 @@ export interface ITask {
   answer: string;
 }
 
-export interface IFormData {
+type ToolsIFormData = IAddTaskFormData | {};
+
+export interface IPostRequest {
+  password: string;
+  data: ToolsIFormData;
+}
+
+export interface IAddTaskFormData {
   title: string;
   theme: string;
   text: string;
   answer: string;
-  password: string;
 }
