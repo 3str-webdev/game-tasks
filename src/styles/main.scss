@@ -22,7 +22,11 @@ body {
   color: $textColor;
 }
 
+.link {
+  text-decoration: none;
+}
+
 // Dev helper
 .selected {
-  outline: 1px solid $accent;
+  outline: 1px solid $accent !important;
 }

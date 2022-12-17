@@ -1,0 +1,71 @@
+@import "../../../styles/vars.scss";
+
+.toolsControllers {
+  background: $accent;
+  color: $lightTextColor;
+  padding: 25px 20px;
+  border-radius: $smallBorderRadius;
+
+  display: flex;
+  gap: 40px;
+
+  .passwordInput {
+    max-width: 400px;
+    width: 100%;
+    color: $lightTextColor;
+    border-bottom-color: $lightTextColor;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 15px;
+
+    .link {
+      position: relative;
+      color: $lightTextColor;
+      li {
+        display: flex;
+        gap: 7px;
+
+        .controllerIcon {
+          display: flex;
+          align-items: center;
+          font-size: 22px;
+        }
+
+        .controllerTitle {
+          font-size: $smallTextFontSize;
+        }
+      }
+    }
+
+    .link::before {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      width: 0;
+      transform: translateX(-50%);
+      height: 2px;
+      background: $lightTextColor;
+      border-radius: 5px;
+
+      transition: width 0.4s;
+    }
+
+    .link.active::before,
+    .link:hover::before {
+      width: 100%;
+    }
+  }
+}
+
+// @media (max-width: 500px) {
+//   .toolsControllers {
+//     ul {
+//       position: fixed;
+//     }
+//   }
+// }
