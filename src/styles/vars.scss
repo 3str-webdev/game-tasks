@@ -5,6 +5,7 @@ $textColor: #111;
 $lightTextColor: #f1f1f1;
 $hoverAccent: #e5e5e5;
 $softContrast: #e5e5e5;
+$softAccent: #555;
 
 // Sizing
 $maxWidth: 1200px;
@@ -39,3 +40,8 @@ $footerPadding: 70px 50px;
 $footerBg: $accent;
 $footerFirstWidthBreakpoint: 800px;
 $footerSecondWidthBreakpoint: 440px;
+
+// Alert
+$warningBgColor: rgb(241, 241, 70);
+$negativeBgColor: rgb(233, 86, 86);
+$positiveBgColor: rgb(80, 187, 80)

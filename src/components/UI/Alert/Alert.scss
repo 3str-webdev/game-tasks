@@ -1,0 +1,45 @@
+@import "../../../styles/vars.scss";
+
+.UIAlert {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  padding: 10px 25px 10px 15px;
+  border-radius: $smallBorderRadius;
+  box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.1);
+
+  .UIAlertIconWrapper {
+    display: flex;
+    align-items: center;
+
+    .UIAlertIcon {
+      display: flex;
+      align-items: center;
+      font-size: 25px;
+    }
+
+    p {
+      padding-left: 5px;
+      font-weight: bold;
+    }
+  }
+
+  z-index: 1000;
+}
+
+.UIAlert.warning {
+  background: $warningBgColor;
+}
+
+.UIAlert.negative {
+  background: $negativeBgColor;
+}
+
+.UIAlert.positive {
+  background: $positiveBgColor;
+}

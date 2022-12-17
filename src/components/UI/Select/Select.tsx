@@ -9,10 +9,9 @@ interface SelectProps {
 const Select: FC<SelectProps> = ({
   children,
   variant = "background",
-  ...props
 }) => {
   return (
-    <span className={`UISelect ${variant}`} {...props}>
+    <span className={`UISelect ${variant}`}>
       {children}
     </span>
   );

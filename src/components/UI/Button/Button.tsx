@@ -6,6 +6,8 @@ interface ButtonProps {
   width?: string | number;
   height?: string | number;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  className?: string;
+  isLoading?: boolean;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -13,12 +15,15 @@ const Button: FC<ButtonProps> = ({
   width = "auto",
   height = "auto",
   onClick,
+  className,
+  isLoading = false,
 }) => {
   return (
     <button
-      className="UIButton"
+      className={`UIButton ${className}${isLoading ? " loading" : ""}`}
       style={{ width: width, height: height }}
       onClick={onClick}
+      disabled={isLoading}
     >
       {value}
     </button>

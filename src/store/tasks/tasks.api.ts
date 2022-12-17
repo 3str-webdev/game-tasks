@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { ITask } from "../../types/types";
+import { IFormData, ITask } from "../../types/types";
 
 enum BaseUrlMode {
   dev = "http://localhost:7000/api/",
@@ -19,11 +19,22 @@ export const tasksApi = createApi({
     }),
 
     getTaskById: build.query<ITask, number | string>({
-      query: (taskId: number) => ({
+      query: (taskId: number | string) => ({
         url: `/tasks/get/${taskId}`,
+      }),
+    }),
+
+    addTask: build.mutation<ITask, IFormData>({
+      query: (request) => ({
+        url: "/tasks/add",
+        method: "POST",
+        body: request,
+        crossDomain: true,
+        responseType: "json",
       }),
     }),
   }),
 });
 
-export const { useGetAllTasksQuery, useGetTaskByIdQuery } = tasksApi;
+export const { useGetAllTasksQuery, useGetTaskByIdQuery, useAddTaskMutation } =
+  tasksApi;
