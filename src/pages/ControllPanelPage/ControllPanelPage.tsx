@@ -19,7 +19,7 @@ const defaultFormData: IFormData = {
 
 const ControllPanelPage: FC = () => {
   const [formData, setFormData] = useState<IFormData>(defaultFormData);
-  const [addTask, { isError, isLoading, isSuccess, data: response }] =
+  const [addTask, { isError, isLoading, isSuccess }] =
     useAddTaskMutation();
   const isShowErrorAlert = useShowAlert(isError);
   const isSuccessErrorAlert = useShowAlert(isSuccess);
