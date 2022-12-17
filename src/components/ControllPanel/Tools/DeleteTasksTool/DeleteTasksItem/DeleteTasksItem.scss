@@ -1,0 +1,38 @@
+@import "../../../../../styles/vars.scss";
+
+.DeleteTasksItem {
+  font-size: $fontSize;
+  border: none;
+  outline: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 2fr) auto;
+  gap: 10px;
+
+  color: $textColor;
+  cursor: default;
+  text-decoration: none;
+  overflow: hidden;
+
+  .DeleteTasksCell {
+    text-align: center;
+    border: 1px solid $accent;
+    border-radius: $smallBorderRadius;
+
+    padding: 10px 15px;
+  }
+
+  .DeleteTasksCell.DeleteTasksDeleteBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    font-size: 20px;
+    padding-right: 13px;
+
+    background: $negativeBgColor;
+    border: none;
+    cursor: pointer;
+  }
+}

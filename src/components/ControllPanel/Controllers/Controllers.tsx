@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { IPostRequest } from "../../../types/types";
 import Input from "../../UI/Input/Input";
-import { NavLink } from "react-router-dom";
 import { VscNewFile } from "react-icons/vsc";
 import { VscTrash } from "react-icons/vsc";
 
 import "./Controllers.scss";
+import ControllLink from "./ControllLink/ControllLink";
 
 interface IToolsControllers {
   request: IPostRequest;
@@ -24,29 +24,16 @@ const Controllers: FC<IToolsControllers> = ({ request, setRequest }) => {
         className={"passwordInput"}
       />
       <ul>
-        <NavLink
-          to={"/tasks/panel/addTask"}
-          className={(navData) => (navData.isActive ? "link active" : "link")}
-        >
-          <li>
-            <span className="controllerIcon">
-              <VscNewFile />
-            </span>
-            <p className="controllerTitle">Добавить</p>
-          </li>
-        </NavLink>
-
-        <NavLink
-          to={"/tasks/panel/deleteTask"}
-          className={(navData) => (navData.isActive ? "link active" : "link")}
-        >
-          <li>
-            <span className="controllerIcon">
-              <VscTrash />
-            </span>
-            <p className="controllerTitle">Удалить</p>
-          </li>
-        </NavLink>
+        <ControllLink
+          icon={<VscNewFile />}
+          title={"Добавить"}
+          path={"/tasks/panel/addTask"}
+        />
+        <ControllLink
+          icon={<VscTrash />}
+          title={"Удалить"}
+          path={"/tasks/panel/deleteTasks"}
+        />
       </ul>
     </nav>
   );

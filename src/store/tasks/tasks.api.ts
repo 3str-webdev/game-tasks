@@ -21,6 +21,8 @@ export const tasksApi = createApi({
     getTaskById: build.query<ITask, number | string>({
       query: (taskId: number | string) => ({
         url: `/tasks/get/${taskId}`,
+        crossDomain: true,
+        responseType: "json",
       }),
     }),
 
@@ -33,8 +35,23 @@ export const tasksApi = createApi({
         responseType: "json",
       }),
     }),
+
+    deleteTask: build.mutation<ITask[], IPostRequest>({
+      query: (request) => ({
+        url: "/tasks/delete",
+        method: "DELETE",
+        body: request,
+        crossDomain: true,
+        responseType: "json",
+      }),
+    }),
   }),
 });
 
-export const { useGetAllTasksQuery, useGetTaskByIdQuery, useAddTaskMutation } =
-  tasksApi;
+export const {
+  useGetAllTasksQuery,
+  useLazyGetAllTasksQuery,
+  useGetTaskByIdQuery,
+  useAddTaskMutation,
+  useDeleteTaskMutation,
+} = tasksApi;

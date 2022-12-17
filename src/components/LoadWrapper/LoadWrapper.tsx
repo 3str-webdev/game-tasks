@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import Error from "../UI/Error/Error";
 import Loader from "../UI/Loader/Loader";
 
@@ -9,13 +9,18 @@ interface ILoadWrapper {
 }
 
 const LoadWrapper: FC<ILoadWrapper> = ({ isLoading, isError, children }) => {
-  if (isError === true) {
-    return <Error />;
-  } else if (isLoading === true) {
-    return <Loader isLoading={isLoading} />;
-  } else {
-    return <>{children}</>;
-  }
+  const [showedComponent, setShowedComponent] = useState(<></>);
+  useEffect(() => {
+    if (isError === true) {
+      setShowedComponent(<Error />);
+    } else if (isLoading === true) {
+      setShowedComponent(<Loader isLoading={isLoading} />);
+    } else {
+      setShowedComponent(<>{children}</>);
+    }
+  }, [isError, isLoading, children]);
+
+  return <>{showedComponent}</>;
 };
 
 export default LoadWrapper;

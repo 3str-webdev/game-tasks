@@ -16,8 +16,7 @@ function App() {
           <Route path="" element={<HomePage />} />
           <Route path="/tasks" element={<TasksListPage />} />
           <Route path="/tasks/:taskId" element={<TaskPage />} />
-          <Route path="/tasks/panel" element={<ControllPanelPage />} />
-          <Route path="/tasks/panel/:tool" element={<ControllPanelPage />} />
+          <Route path="/tasks/panel/*" element={<ControllPanelPage />} />
           <Route path="/contactus" element={<ContactPage />} />
         </Routes>
       </Layout>
