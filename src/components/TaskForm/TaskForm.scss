@@ -1,0 +1,46 @@
+@import "../../styles/vars.scss";
+
+.taskFormWrapper {
+  width: 100%;
+
+  input {
+    max-width: 400px;
+  }
+
+  .inlineFields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+
+    input {
+      display: inline-block;
+    }
+  }
+
+  .editorWrapper {
+    padding-top: 25px;
+
+    .textArea {
+      // max-width: 600px;
+      padding: 10px;
+      width: 100%;
+      height: 200px;
+      resize: none;
+      outline: none;
+      background: $bgColor;
+      border: 1px solid $softAccent;
+    }
+  }
+
+  .submitBtn {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .taskFormWrapper {
+    .inlineFields {
+      grid-template-columns: 1fr;
+    }
+  }
+}
