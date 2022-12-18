@@ -1,26 +1,30 @@
-import { FC } from "react";
-import { IPostRequest } from "../../../types/types";
+import { ChangeEvent, FC } from "react";
 import Input from "../../UI/Input/Input";
 import { VscNewFile } from "react-icons/vsc";
 import { VscTrash } from "react-icons/vsc";
-
-import "./Controllers.scss";
 import ControllLink from "./ControllLink/ControllLink";
 
-interface IToolsControllers {
-  request: IPostRequest;
-  setRequest: Function;
-}
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 
-const Controllers: FC<IToolsControllers> = ({ request, setRequest }) => {
+import "./Controllers.scss";
+import { setPassword } from "../../../store/tools/requestSlice";
+
+const Controllers: FC = () => {
+  const password = useAppSelector((state) => state.requestReduser);
+
+  // const password = useAppSelector((state) => state.requestReduser.password);
+  const dispatch = useAppDispatch();
+
+  const updatePassword = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch(setPassword(e.target.value));
+  };
+
   return (
     <nav className="toolsControllers">
       <Input
-        value={request.password}
+        value={password}
         placeholder={"Пароль модератора"}
-        onChange={(e) =>
-          setRequest({ password: e.target.value, data: { ...request.data } })
-        }
+        onChange={updatePassword}
         className={"passwordInput"}
       />
       <ul>

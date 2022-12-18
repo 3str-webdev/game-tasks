@@ -2,42 +2,49 @@ import { FC } from "react";
 import { ITask } from "../../../../../types/types";
 import { VscTrash } from "react-icons/vsc";
 
-import { IPostRequest } from "../../../../../types/types";
-
 import "./DeleteTasksItem.scss";
+import { useAppSelector } from "../../../../../hooks/redux";
 
 interface IDeleteTasksItem {
-  request: IPostRequest;
   task: ITask;
   deleteTaskTrigger: any;
   updateTasksList: any;
+  isDeleteLoading: boolean;
 }
 
 const DeleteTasksItem: FC<IDeleteTasksItem> = ({
-  request,
   task,
   deleteTaskTrigger,
   updateTasksList,
+  isDeleteLoading,
 }) => {
-  const deleteTask = (): void => {
-    request.data = { taskId: task.taskId };
+  const password = useAppSelector((state) => state.requestReduser);
 
-    deleteTaskTrigger(request);
+  const deleteTask = (): void => {
+    deleteTaskTrigger({
+      password,
+      data: {
+        taskId: task.taskId,
+      },
+    });
     updateTasksList();
   };
 
   return (
-    <button className="DeleteTasksItem">
+    <div className="DeleteTasksItem">
       <div className="DeleteTasksCell">{task.taskId}</div>
       <div className="DeleteTasksCell">{task.theme}</div>
       <div className="DeleteTasksCell">{task.title}</div>
-      <div
-        className="DeleteTasksCell DeleteTasksDeleteBtn"
+      <button
+        className={`DeleteTasksCell DeleteTasksDeleteBtn${
+          isDeleteLoading ? " loading" : ""
+        }`}
+        disabled={isDeleteLoading}
         onClick={deleteTask}
       >
         <VscTrash />
-      </div>
-    </button>
+      </button>
+    </div>
   );
 };
 

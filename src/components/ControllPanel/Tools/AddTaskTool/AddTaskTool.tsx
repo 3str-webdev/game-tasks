@@ -6,43 +6,39 @@ import Button from "../../../UI/Button/Button";
 import { useAddTaskMutation } from "../../../../store/tasks/tasks.api";
 import { useShowAlert } from "../../../../hooks/useShowAlert";
 
-import { IAddTaskFormData, IPostRequest } from "../../../../types/types";
+import { IAddTaskFormData, DAddTaskFormData } from "../../../../types/types";
 
 import "./AddTaskTool.scss";
+import { useAppSelector } from "../../../../hooks/redux";
 
-const defaultFormData: IAddTaskFormData = {
-  title: "",
-  theme: "",
-  text: "",
-  answer: "",
-};
-
-interface IAddTaskTool {
-  request: IPostRequest;
-}
-
-const AddTaskTool: FC<IAddTaskTool> = ({ request }) => {
-  const [formData, setFormData] = useState<IAddTaskFormData>(defaultFormData);
+const AddTaskTool: FC = () => {
   const [addTask, { isError, isLoading, isSuccess }] = useAddTaskMutation();
   const isShowErrorAlert = useShowAlert(isError);
   const isSuccessErrorAlert = useShowAlert(isSuccess);
+
+  const [formData, setFormData] = useState<IAddTaskFormData>(DAddTaskFormData);
+
+  const moderatorPassrord = useAppSelector((state) => state.requestReduser);
 
   const updateFormData = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     key: string
   ): void => {
-    setFormData({ ...formData, [key]: e.target.value });
+    setFormData((prev) => ({
+      ...prev,
+      [key]: e.target.value,
+    }));
   };
 
   const submit = () => {
     // TODO: Validation
-    request.data = formData;
-    addTask(request);
+
+    addTask({ password: moderatorPassrord, data: formData });
   };
 
   useEffect(() => {
     if (!isLoading && isSuccess) {
-      setFormData(defaultFormData);
+      setFormData(DAddTaskFormData);
     }
   }, [isLoading]);
 

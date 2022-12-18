@@ -7,7 +7,7 @@ export interface ITask {
   answer: string;
 }
 
-type ToolsIFormData = IAddTaskFormData | {};
+export type ToolsIFormData = IAddTaskFormData | IDeleteTasksData;
 
 export interface IPostRequest {
   password: string;
@@ -19,4 +19,15 @@ export interface IAddTaskFormData {
   theme: string;
   text: string;
   answer: string;
+}
+
+export const DAddTaskFormData: IAddTaskFormData = {
+  title: "",
+  theme: "",
+  text: "",
+  answer: "",
+};
+
+export interface IDeleteTasksData {
+  taskId: string | number;
 }

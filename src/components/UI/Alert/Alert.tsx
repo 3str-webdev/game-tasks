@@ -55,7 +55,7 @@ const Alert: FC<IAlertProps> = ({
           <span className="UIAlertIcon">
             <GrStatusGood />
           </span>
-          <p>Error:</p>
+          <p>Success:</p>
         </>
       );
       break;

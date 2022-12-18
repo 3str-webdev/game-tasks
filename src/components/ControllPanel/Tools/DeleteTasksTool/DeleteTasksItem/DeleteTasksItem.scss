@@ -2,8 +2,6 @@
 
 .DeleteTasksItem {
   font-size: $fontSize;
-  border: none;
-  outline: none;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 2fr) auto;
@@ -32,7 +30,14 @@
     padding-right: 13px;
 
     background: $negativeBgColor;
+    color: $lightTextColor;
     border: none;
     cursor: pointer;
+  }
+
+  .DeleteTasksCell.DeleteTasksDeleteBtn.loading {
+    opacity: 0.85;
+    transition-property: opacity;
+    transition-delay: 0.3s;
   }
 }

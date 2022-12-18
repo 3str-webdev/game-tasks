@@ -10,15 +10,9 @@ import {
 } from "../../../../store/tasks/tasks.api";
 import { useShowAlert } from "../../../../hooks/useShowAlert";
 
-import { IPostRequest } from "../../../../types/types";
-
 import "./DeleteTaskTool.scss";
 
-interface IDeleteTasksTool {
-  request: IPostRequest;
-}
-
-const DeleteTasksTool: FC<IDeleteTasksTool> = ({ request }) => {
+const DeleteTasksTool: FC = () => {
   const [getAllTasksTrigger, { isError, isLoading, data: tasks }] =
     useLazyGetAllTasksQuery();
   const [
@@ -36,7 +30,6 @@ const DeleteTasksTool: FC<IDeleteTasksTool> = ({ request }) => {
 
   useEffect(() => {
     getAllTasksTrigger();
-    // console.log(isDeleteError, currentTasks);
   }, [getAllTasksTrigger, currentTasks]);
 
   return (
@@ -46,9 +39,9 @@ const DeleteTasksTool: FC<IDeleteTasksTool> = ({ request }) => {
           items={tasks}
           renderItem={(task) => (
             <DeleteTasksItem
-              request={request}
               deleteTaskTrigger={deleteTaskTrigger}
               updateTasksList={getAllTasksTrigger}
+              isDeleteLoading={isDeleteLoading}
               task={task}
               key={task.id}
             />

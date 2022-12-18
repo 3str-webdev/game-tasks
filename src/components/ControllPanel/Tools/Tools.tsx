@@ -1,23 +1,18 @@
 import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
-import { IPostRequest } from "../../../types/types";
 import AddTaskTool from "./AddTaskTool/AddTaskTool";
 import DeleteTasksTool from "./DeleteTasksTool/DeleteTasksTool";
 
 interface IToolsProps {
   className?: string;
-  request: IPostRequest;
 }
 
-const Tools: FC<IToolsProps> = ({ className, request }) => {
+const Tools: FC<IToolsProps> = ({ className }) => {
   return (
     <section className={className}>
       <Routes>
-        <Route path="/addTask" element={<AddTaskTool request={request} />} />
-        <Route
-          path="/deleteTasks"
-          element={<DeleteTasksTool request={request} />}
-        />
+        <Route path="/addTask" element={<AddTaskTool />} />
+        <Route path="/deleteTasks" element={<DeleteTasksTool />} />
       </Routes>
     </section>
   );
