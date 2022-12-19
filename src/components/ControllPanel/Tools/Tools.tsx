@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import AddTaskTool from "./AddTaskTool/AddTaskTool";
 import DeleteTasksTool from "./DeleteTasksTool/DeleteTasksTool";
 
@@ -11,6 +11,7 @@ const Tools: FC<IToolsProps> = ({ className }) => {
   return (
     <section className={className}>
       <Routes>
+        <Route path="/" element={<Navigate to={"addTask"} />} />
         <Route path="/addTask" element={<AddTaskTool />} />
         <Route path="/deleteTasks" element={<DeleteTasksTool />} />
       </Routes>
