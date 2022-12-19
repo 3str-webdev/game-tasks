@@ -15,7 +15,6 @@ const AddTaskTool: FC = () => {
 
   const submit = (formData: IAddTaskFormData) => {
     // TODO: Validation
-
     addTask({ password: moderatorPassrord, data: formData });
   };
 

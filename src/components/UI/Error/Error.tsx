@@ -1,16 +1,17 @@
 import { FC } from "react";
 import { VscError } from "react-icons/vsc";
+import { IErrorProps } from "./Error.props";
 
 import "./Error.scss";
 
-interface IError {
-  errorMessage?: string;
-}
-
-const Error: FC<IError> = ({ errorMessage = "Что-то пошло не так..." }) => {
+const Error: FC<IErrorProps> = ({
+  message = "Что-то пошло не так...",
+  className,
+  ...props
+}) => {
   return (
-    <span className="UIError">
-      <VscError size={26} /> <p>{errorMessage}</p>
+    <span className={`UIError ${className}`} {...props}>
+      <VscError size={26} /> <p>{message}</p>
     </span>
   );
 };

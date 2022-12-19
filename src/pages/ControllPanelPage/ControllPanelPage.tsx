@@ -5,7 +5,10 @@ import Tools from "../../components/ControllPanel/Tools/Tools";
 
 const ControllPanelPage: FC = () => {
   return (
-    <Section title="Панель управления" className="page controllPanelPage">
+    <Section
+      sectionTitle="Панель управления"
+      className="page controllPanelPage"
+    >
       <Controllers />
       <Tools className="toolsWrapper" />
     </Section>

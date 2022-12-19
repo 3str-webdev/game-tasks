@@ -3,25 +3,16 @@ import { IoIosWarning } from "react-icons/io";
 import { BiErrorAlt } from "react-icons/bi";
 import { GrStatusGood } from "react-icons/gr";
 
+import { AlertVariants, IAlertProps } from "./Alert.props";
+
 import "./Alert.scss";
-
-export enum AlertVariants {
-  positive = "positive",
-  negative = "negative",
-  normal = "normal",
-  warning = "warning",
-}
-
-interface IAlertProps {
-  message: string;
-  variant?: AlertVariants;
-  isShow?: boolean;
-}
 
 const Alert: FC<IAlertProps> = ({
   message,
   variant = AlertVariants.normal,
   isShow = false,
+  className,
+  ...props
 }) => {
   let Icon;
 
@@ -64,7 +55,7 @@ const Alert: FC<IAlertProps> = ({
   return (
     <>
       {isShow ? (
-        <span className={`UIAlert ${variant}`}>
+        <span className={`UIAlert ${variant} ${className}`} {...props}>
           <span className="UIAlertIconWrapper">{Icon}</span> <p>{message}</p>
         </span>
       ) : (

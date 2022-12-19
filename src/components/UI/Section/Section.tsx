@@ -1,28 +1,18 @@
-import { FC, ReactNode } from "react";
+import { FC } from "react";
+import { ISectionProps } from "./Section.props";
 
 import "./Section.scss";
 
-export enum SectionVariants {
-  single = "single",
-  twice = "twice",
-}
-
-interface SectionProps {
-  title: string;
-  children: ReactNode;
-  variant?: SectionVariants;
-  className?: string;
-}
-
-const Section: FC<SectionProps> = ({
-  title,
+const Section: FC<ISectionProps> = ({
+  sectionTitle,
   children,
-  variant = SectionVariants.single,
+  variant = "single",
   className,
+  ...props
 }) => {
   return (
-    <section className={`UISection ${variant} ${className}`}>
-      <h3 className="UISectionTitle">{title}</h3>
+    <section className={`UISection ${variant} ${className}`} {...props}>
+      <h3 className="UISectionTitle">{sectionTitle}</h3>
       <div className="UISectionContent">{children}</div>
     </section>
   );

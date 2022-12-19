@@ -1,21 +1,26 @@
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 import { NavLink } from "react-router-dom";
+import { IControllLink } from "./ControllLink.props";
 
 import "./ControllLink.scss";
 
-interface IControllLink {
-  icon: ReactNode;
-  title: string;
-  path: string;
-}
+const ControllLink: FC<IControllLink> = ({
+  icon,
+  title,
+  path,
+  className,
+  ...props
+}) => {
+  const defaultClassName = `controllLinkWrapper ${className}`;
+  const activeClassName = `controllLinkWrapper ${className} active`;
 
-const ControllLink: FC<IControllLink> = ({ icon, title, path }) => {
   return (
     <NavLink
       to={path}
       className={(navData) =>
-        navData.isActive ? "controllLinkWrapper active" : "controllLinkWrapper"
+        navData.isActive ? activeClassName : defaultClassName
       }
+      {...props}
     >
       <div className="controllLink">
         <span className="controllerIcon">{icon}</span>

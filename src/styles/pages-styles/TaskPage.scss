@@ -44,9 +44,11 @@
 
         gap: 15px;
 
-        button {
+        .showAnswerToggleBtn {
           display: grid;
           place-items: center;
+          width: 31px;
+          height: 31px;
           font-size: $subTitleFontSize;
           padding: 0;
         }

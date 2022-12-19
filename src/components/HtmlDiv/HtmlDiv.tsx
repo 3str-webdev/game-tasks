@@ -1,17 +1,11 @@
-import { CSSProperties, FC } from "react";
+import { FC } from "react";
+import { IHtmlDivProps } from "./HtmlDiv.props";
 
-interface IHtmlDivProps {
-  content?: string;
-  className?: string;
-  style?: CSSProperties;
-}
-
-const HtmlDiv: FC<IHtmlDivProps> = ({ content, className, style }) => {
+const HtmlDiv: FC<IHtmlDivProps> = ({ content, ...props }) => {
   return (
     <div
-      className={className}
       dangerouslySetInnerHTML={{ __html: content !== undefined ? content : "" }}
-      style={style}
+      {...props}
     ></div>
   );
 };

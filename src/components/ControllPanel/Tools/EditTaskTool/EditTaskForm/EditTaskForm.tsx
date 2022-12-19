@@ -11,7 +11,6 @@ import TaskForm from "../../../../TaskForm/TaskForm";
 
 const EditTaskForm: FC = () => {
   const currentTaskId = useParams().taskId ?? "";
-  console.log(currentTaskId);
 
   const {
     isError,
@@ -20,7 +19,7 @@ const EditTaskForm: FC = () => {
     refetch,
   } = useGetTaskByIdQuery(currentTaskId);
 
-  let defaultValue: IAddTaskFormData = {
+  const defaultValue: IAddTaskFormData = {
     theme: task?.theme ?? "",
     title: task?.title ?? "",
     text: task?.text ?? "",
@@ -28,7 +27,6 @@ const EditTaskForm: FC = () => {
   };
 
   useEffect(() => {
-    console.log(currentTaskId);
     refetch();
   }, [currentTaskId, refetch]);
 
@@ -44,8 +42,6 @@ const EditTaskForm: FC = () => {
   ] = useUpdateTaskMutation();
 
   const updateTask = (data: IAddTaskFormData): void => {
-    console.log({ password, data: { taskId: currentTaskId, ...data } });
-
     updateTaskTrigger({ password, data: { taskId: currentTaskId, ...data } });
   };
 

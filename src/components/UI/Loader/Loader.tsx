@@ -1,12 +1,9 @@
 import { FC, useEffect, useState } from "react";
+import { ILoaderProps } from "./Loader.props";
 
 import "./Loader.scss";
 
-interface ILoaderProps {
-  isLoading: boolean;
-}
-
-const Loader: FC<ILoaderProps> = ({ isLoading }) => {
+const Loader: FC<ILoaderProps> = ({ isLoading, className, ...props }) => {
   const [isShow, setIsShow] = useState(false);
 
   useEffect(() => {
@@ -21,7 +18,11 @@ const Loader: FC<ILoaderProps> = ({ isLoading }) => {
     }
   }, [isLoading]);
 
-  return <>{isShow ? <div className="UILoader"></div> : ""}</>;
+  return (
+    <>
+      {isShow ? <div className={`UILoader ${className}`} {...props}></div> : ""}
+    </>
+  );
 };
 
 export default Loader;

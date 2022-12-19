@@ -17,19 +17,8 @@
     }
   }
 
-  .editorWrapper {
+  .editor {
     padding-top: 25px;
-
-    .textArea {
-      // max-width: 600px;
-      padding: 10px;
-      width: 100%;
-      height: 200px;
-      resize: none;
-      outline: none;
-      background: $bgColor;
-      border: 1px solid $softAccent;
-    }
   }
 
   .submitBtn {

@@ -2,15 +2,16 @@ import { FC, useEffect } from "react";
 import List from "../../../List/List";
 import LoadWrapper from "../../../LoadWrapper/LoadWrapper";
 import DeleteTasksItem from "./DeleteTasksItem/DeleteTasksItem";
-import Alert, { AlertVariants } from "../../../UI/Alert/Alert";
+import Alert from "../../../UI/Alert/Alert";
+import { useShowAlert } from "../../../../hooks/useShowAlert";
 
 import {
   useDeleteTaskMutation,
   useLazyGetAllTasksQuery,
 } from "../../../../store/tasks/tasks.api";
-import { useShowAlert } from "../../../../hooks/useShowAlert";
 
 import "./DeleteTaskTool.scss";
+import { AlertVariants } from "../../../UI/Alert/Alert.props";
 
 const DeleteTasksTool: FC = () => {
   const [getAllTasksTrigger, { isError, isLoading, data: tasks }] =

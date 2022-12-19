@@ -10,8 +10,6 @@ import { setPassword } from "../../../store/tools/requestSlice";
 
 const Controllers: FC = () => {
   const password = useAppSelector((state) => state.requestReduser);
-
-  // const password = useAppSelector((state) => state.requestReduser.password);
   const dispatch = useAppDispatch();
 
   const updatePassword = (e: ChangeEvent<HTMLInputElement>) => {

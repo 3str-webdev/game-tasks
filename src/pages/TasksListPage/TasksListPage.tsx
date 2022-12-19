@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, ChangeEvent } from "react";
 import LoadWrapper from "../../components/LoadWrapper/LoadWrapper";
 import Input from "../../components/UI/Input/Input";
 import Section from "../../components/UI/Section/Section";
@@ -38,13 +38,17 @@ const TasksListPage: FC = () => {
     );
   };
 
+  const searchHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    searchTasks(e.target.value);
+  };
+
   useEffect(() => {
     setTasksList(tasksData);
   }, [tasksData]);
 
   return (
     <section className="page tasksListPage">
-      <Section title="Задачи">
+      <Section sectionTitle="Задачи">
         <div>
           На этой странице вы можете познакомиться со списком задач, доступных
           для пользователей. Мы постоянно расширяем каталог новыми темами и
@@ -56,7 +60,7 @@ const TasksListPage: FC = () => {
           <Input
             value={searchValue}
             placeholder="Введите название, тему или номер задачи"
-            onChange={(e) => searchTasks(e.target.value)}
+            onChange={searchHandler}
           />
         </div>
         <LoadWrapper isError={isError} isLoading={isLoading}>

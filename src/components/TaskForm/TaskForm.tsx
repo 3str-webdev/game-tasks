@@ -1,25 +1,15 @@
 import { FC, useState, useEffect, ChangeEvent } from "react";
 import Input from "../UI/Input/Input";
-import Alert, { AlertVariants } from "../UI/Alert/Alert";
+import Alert from "../UI/Alert/Alert";
+import { AlertVariants } from "../UI/Alert/Alert.props";
 import Button from "../UI/Button/Button";
 
 import { useShowAlert } from "../../hooks/useShowAlert";
 import { IAddTaskFormData } from "../../types/types";
+import { ITaskFormProps } from "./TaskForm.props";
 
 import "./TaskForm.scss";
-
-interface ITaskFormProps {
-  defaultValue: IAddTaskFormData;
-  isLoading: boolean;
-  isError: boolean;
-  isSuccess: boolean;
-  submit: Function;
-  alertMessages: {
-    isError: string;
-    isSuccess: string;
-  };
-  resetAfterSubmit?: boolean;
-}
+import InputArea from "../UI/InputArea/InputArea";
 
 const TaskForm: FC<ITaskFormProps> = ({
   defaultValue,
@@ -58,37 +48,43 @@ const TaskForm: FC<ITaskFormProps> = ({
           <Input
             value={formData.title}
             placeholder="Название задачи"
-            onChange={(e) => updateFormData(e, "title")}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              updateFormData(e, "title")
+            }
           />
 
           <Input
             value={formData.theme}
             placeholder="Тема задачи"
-            onChange={(e) => updateFormData(e, "theme")}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              updateFormData(e, "theme")
+            }
           />
         </div>
-        <div className="editorWrapper">
-          <h5>Текст задачи</h5>
-          <textarea
-            value={formData.text}
-            className="textArea taskText"
-            onChange={(e) => updateFormData(e, "text")}
-          />
-        </div>
-        <div className="editorWrapper">
-          <h5>Ответ</h5>
-          <textarea
-            value={formData.answer}
-            className="textArea taskAnswer"
-            onChange={(e) => updateFormData(e, "answer")}
-          />
-        </div>
+        <InputArea
+          title="Текст задачи"
+          value={formData.text}
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+            updateFormData(e, "text")
+          }
+          className="editor"
+        />
+        <InputArea
+          title="Ответ"
+          value={formData.answer}
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+            updateFormData(e, "answer")
+          }
+          className="editor"
+        />
+
         <Button
-          value={"Отправить"}
           className={"submitBtn"}
           isLoading={isLoading}
           onClick={() => submit(formData)}
-        />
+        >
+          Отправить
+        </Button>
 
         <Alert
           isShow={isShowErrorAlert}

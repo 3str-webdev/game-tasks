@@ -1,27 +1,21 @@
-import { FC, ChangeEventHandler, memo } from "react";
+import { FC, memo } from "react";
+import { IInputProps } from "./Input.props";
 
 import "./Input.scss";
 
-interface IInputProps {
-  placeholder?: string;
-  value?: string;
-  onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
-  className?: string;
-}
-
 const Input: FC<IInputProps> = ({
   placeholder,
-  value,
-  onChange,
   className,
+  value,
+  ...props
 }) => {
   return (
     <span className="UIInput">
       <input
         type={"text"}
-        value={value}
         className={`UIInputTextField ${className}`}
-        onChange={onChange}
+        value={value}
+        {...props}
       />
       <span className={`UIInputPlaceholder${value ? " withValue" : ""}`}>
         {placeholder}

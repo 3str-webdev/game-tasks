@@ -1,31 +1,21 @@
-import { FC, ReactNode, MouseEventHandler } from "react";
+import { FC } from "react";
+import { IButtonProps } from "./Button.props";
+
 import "./Button.scss";
 
-interface ButtonProps {
-  value: string | ReactNode;
-  width?: string | number;
-  height?: string | number;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  className?: string;
-  isLoading?: boolean;
-}
-
-const Button: FC<ButtonProps> = ({
-  value,
-  width = "auto",
-  height = "auto",
-  onClick,
-  className,
+const Button: FC<IButtonProps> = ({
+  children,
   isLoading = false,
+  className,
+  ...props
 }) => {
   return (
     <button
       className={`UIButton ${className}${isLoading ? " loading" : ""}`}
-      style={{ width: width, height: height }}
-      onClick={onClick}
       disabled={isLoading}
+      {...props}
     >
-      {value}
+      {children}
     </button>
   );
 };

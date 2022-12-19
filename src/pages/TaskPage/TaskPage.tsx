@@ -22,7 +22,7 @@ const TaskPage: FC = () => {
     <>
       <div className="controlls">
         <NavLink to={"/tasks"}>
-          <Button value="К задачам" />
+          <Button>К задачам</Button>
         </NavLink>
       </div>
 
@@ -51,12 +51,9 @@ const TaskPage: FC = () => {
               />
 
               <span className="showAnswerToggle">
-                <Button
-                  value={isShowAnswer ? "×" : "+"}
-                  width={31}
-                  height={31}
-                  onClick={() => setIsShowAnswer(!isShowAnswer)}
-                />{" "}
+                <Button className="showAnswerToggleBtn" onClick={() => setIsShowAnswer(!isShowAnswer)}>
+                  {isShowAnswer ? "×" : "+"}
+                </Button>{" "}
                 <p>Ответ</p>
               </span>
 

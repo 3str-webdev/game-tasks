@@ -1,17 +1,15 @@
-import { FC, ReactNode } from "react";
+import { FC } from "react";
+import { ISelectProps } from "./Select.props";
 import "./Select.scss";
 
-interface SelectProps {
-  children: ReactNode;
-  variant?: "background" | "underline";
-}
-
-const Select: FC<SelectProps> = ({
+const Select: FC<ISelectProps> = ({
   children,
   variant = "background",
+  className,
+  ...props
 }) => {
   return (
-    <span className={`UISelect ${variant}`}>
+    <span className={`UISelect ${variant} ${className}`} {...props}>
       {children}
     </span>
   );

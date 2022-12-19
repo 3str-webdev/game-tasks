@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Section, { SectionVariants } from "../../components/UI/Section/Section";
+import Section from "../../components/UI/Section/Section";
 import Select from "../../components/UI/Select/Select";
 import { BsChevronCompactDown } from "react-icons/bs";
 
@@ -19,7 +19,7 @@ const HomePage: FC = () => {
       </section>
 
       <div className="sectionWrapper">
-        <Section title="Немного о проекте" variant={SectionVariants.twice}>
+        <Section sectionTitle="Немного о проекте" variant={"twice"}>
           <div className="text">
             Наш проект нацелен на создание{" "}
             <Select variant="underline">сборника</Select> задач для учеников 5-7
@@ -39,7 +39,7 @@ const HomePage: FC = () => {
       </div>
 
       <div className="sectionWrapper single">
-        <Section title="Амбиции" variant={SectionVariants.single}>
+        <Section sectionTitle="Амбиции">
           <div>
             Мы упорно работаем над <Select>систематизацией</Select>,
             доступностью для детей и содержимым, чтобы дети легко могли понимать
