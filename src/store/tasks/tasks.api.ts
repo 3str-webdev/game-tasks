@@ -45,6 +45,16 @@ export const tasksApi = createApi({
         responseType: "json",
       }),
     }),
+
+    updateTask: build.mutation<ITask[], IPostRequest>({
+      query: (request) => ({
+        url: "/tasks/update",
+        method: "PUT",
+        body: request,
+        crossDomain: true,
+        responseType: "json",
+      }),
+    }),
   }),
 });
 
@@ -52,6 +62,8 @@ export const {
   useGetAllTasksQuery,
   useLazyGetAllTasksQuery,
   useGetTaskByIdQuery,
+  useLazyGetTaskByIdQuery,
   useAddTaskMutation,
   useDeleteTaskMutation,
+  useUpdateTaskMutation,
 } = tasksApi;

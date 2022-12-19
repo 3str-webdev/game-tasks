@@ -1,7 +1,6 @@
 import { ChangeEvent, FC } from "react";
 import Input from "../../UI/Input/Input";
-import { VscNewFile } from "react-icons/vsc";
-import { VscTrash } from "react-icons/vsc";
+import { VscNewFile, VscTrash, VscEdit } from "react-icons/vsc";
 import ControllLink from "./ControllLink/ControllLink";
 
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
@@ -37,6 +36,11 @@ const Controllers: FC = () => {
           icon={<VscTrash />}
           title={"Удалить"}
           path={"/tasks/panel/deleteTasks"}
+        />
+        <ControllLink
+          icon={<VscEdit />}
+          title={"Редактировать"}
+          path={"/tasks/panel/editTask"}
         />
       </ul>
     </nav>

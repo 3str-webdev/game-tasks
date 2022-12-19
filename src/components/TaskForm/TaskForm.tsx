@@ -14,6 +14,11 @@ interface ITaskFormProps {
   isError: boolean;
   isSuccess: boolean;
   submit: Function;
+  alertMessages: {
+    isError: string;
+    isSuccess: string;
+  };
+  resetAfterSubmit?: boolean;
 }
 
 const TaskForm: FC<ITaskFormProps> = ({
@@ -22,6 +27,8 @@ const TaskForm: FC<ITaskFormProps> = ({
   isSuccess,
   isLoading,
   submit,
+  alertMessages,
+  resetAfterSubmit = true,
 }) => {
   const [formData, setFormData] = useState<IAddTaskFormData>(defaultValue);
 
@@ -39,10 +46,10 @@ const TaskForm: FC<ITaskFormProps> = ({
   };
 
   useEffect(() => {
-    if (isSuccess) {
+    if (isSuccess && resetAfterSubmit) {
       setFormData(defaultValue);
     }
-  }, [isSuccess, defaultValue]);
+  }, [isSuccess, defaultValue, resetAfterSubmit]);
 
   return (
     <>
@@ -85,12 +92,12 @@ const TaskForm: FC<ITaskFormProps> = ({
 
         <Alert
           isShow={isShowErrorAlert}
-          message={`Ошибка при добавлении задачи`}
+          message={alertMessages.isError}
           variant={AlertVariants.negative}
         />
         <Alert
           isShow={isSuccessErrorAlert}
-          message="Задача успешно добавлена"
+          message={alertMessages.isSuccess}
           variant={AlertVariants.positive}
         />
       </section>

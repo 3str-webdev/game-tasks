@@ -7,19 +7,24 @@ import "./TasksList.scss";
 
 interface ITasksList {
   tasks: ITask[] | undefined;
+  withHeader?: boolean;
 }
 
-const TasksList: FC<ITasksList> = ({ tasks }) => {
+const TasksList: FC<ITasksList> = ({ tasks, withHeader = true }) => {
   return (
     <div className="UITasksList">
       {tasks !== undefined ? (
         tasks.length > 0 ? (
           <>
-            <div className="UITaskItem UITasksListHeader">
-              <div className="UITaskItemCell">Номер задачи</div>
-              <div className="UITaskItemCell">Категория</div>
-              <div className="UITaskItemCell">Название</div>
-            </div>
+            {withHeader ? (
+              <div className="UITaskItem UITasksListHeader">
+                <div className="UITaskItemCell">Номер задачи</div>
+                <div className="UITaskItemCell">Категория</div>
+                <div className="UITaskItemCell">Название</div>
+              </div>
+            ) : (
+              ""
+            )}
             <List
               items={tasks}
               renderItem={(item) => <TaskItem key={item.taskId} task={item} />}

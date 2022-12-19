@@ -19,6 +19,11 @@ const AddTaskTool: FC = () => {
     addTask({ password: moderatorPassrord, data: formData });
   };
 
+  const alertMessages = {
+    isError: "Ошибка при добавлении задачи",
+    isSuccess: "Задача успешно добавлена",
+  };
+
   return (
     <>
       <TaskForm
@@ -27,6 +32,7 @@ const AddTaskTool: FC = () => {
         isError={isError}
         isLoading={isLoading}
         isSuccess={isSuccess}
+        alertMessages={alertMessages}
       />
     </>
   );
