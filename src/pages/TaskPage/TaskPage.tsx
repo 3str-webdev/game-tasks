@@ -18,6 +18,10 @@ const TaskPage: FC = () => {
   const hiddenTaskAnswerHeight =
     hiddenTaskAnswerRef.current?.getBoundingClientRect().height;
 
+  const normalizeValue = (value: string | undefined) => {
+    return value?.split("\n").join("<br />") ?? "";
+  };
+
   return (
     <>
       <div className="controlls">
@@ -30,35 +34,42 @@ const TaskPage: FC = () => {
         <div className="taskCard">
           <LoadWrapper isError={isError} isLoading={isLoading}>
             <HtmlDiv
-              content={task?.title}
+              content={normalizeValue(task?.title)}
               className="taskTitle taskInfoBlock"
             />
 
             <HtmlDiv
-              content={`Тема задачи • ${task?.theme}`}
+              content={`Тема задачи • ${normalizeValue(task?.theme)}`}
               className="taskSubTitle taskInfoBlock"
             />
 
-            <HtmlDiv className="taskText taskInfoBlock" content={task?.text} />
+            <HtmlDiv
+              className="taskText taskInfoBlock"
+              content={normalizeValue(task?.text)}
+            />
 
             <div className="taskAnswerWrapper taskInfoBlock">
               <div
                 className="hiddenTaskAnswer"
                 ref={hiddenTaskAnswerRef}
                 dangerouslySetInnerHTML={{
-                  __html: task !== undefined ? task?.answer : "",
+                  __html:
+                    task !== undefined ? normalizeValue(task?.answer) : "",
                 }}
               />
 
               <span className="showAnswerToggle">
-                <Button className="showAnswerToggleBtn" onClick={() => setIsShowAnswer(!isShowAnswer)}>
+                <Button
+                  className="showAnswerToggleBtn"
+                  onClick={() => setIsShowAnswer(!isShowAnswer)}
+                >
                   {isShowAnswer ? "×" : "+"}
                 </Button>{" "}
                 <p>Ответ</p>
               </span>
 
               <HtmlDiv
-                content={task?.answer}
+                content={normalizeValue(task?.answer)}
                 className={"taskAnswer"}
                 style={{
                   height: isShowAnswer ? hiddenTaskAnswerHeight : 0,

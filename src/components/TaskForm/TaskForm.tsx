@@ -3,13 +3,13 @@ import Input from "../UI/Input/Input";
 import Alert from "../UI/Alert/Alert";
 import { AlertVariants } from "../UI/Alert/Alert.props";
 import Button from "../UI/Button/Button";
+import InputArea from "../UI/InputArea/InputArea";
 
 import { useShowAlert } from "../../hooks/useShowAlert";
 import { IAddTaskFormData } from "../../types/types";
 import { ITaskFormProps } from "./TaskForm.props";
 
 import "./TaskForm.scss";
-import InputArea from "../UI/InputArea/InputArea";
 
 const TaskForm: FC<ITaskFormProps> = ({
   defaultValue,
