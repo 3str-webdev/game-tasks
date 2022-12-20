@@ -3,7 +3,7 @@ import { IPostRequest, ITask } from "../../types/types";
 
 enum BaseUrlMode {
   dev = "http://localhost:4001/api/",
-  prod = "https://game-tasks-server.onrender.com:4001/api/",
+  prod = "https://game-tasks-server.onrender.com/api/",
 }
 
 export const tasksApi = createApi({
