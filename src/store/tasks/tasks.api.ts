@@ -3,13 +3,13 @@ import { IPostRequest, ITask } from "../../types/types";
 
 enum BaseUrlMode {
   dev = "http://localhost:7000/api/",
-  prod = "Some url",
+  prod = "https://game-tasks-server.onrender.com/api/",
 }
 
 export const tasksApi = createApi({
   reducerPath: "tasks/api",
   baseQuery: fetchBaseQuery({
-    baseUrl: BaseUrlMode.dev,
+    baseUrl: BaseUrlMode.prod,
   }),
   endpoints: (build) => ({
     getAllTasks: build.query<ITask[], void>({
