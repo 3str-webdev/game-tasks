@@ -2,8 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { IPostRequest, ITask } from "../../types/types";
 
 enum BaseUrlMode {
-  dev = "http://localhost:7000/api/",
-  prod = "https://game-tasks-server.onrender.com/api/",
+  dev = "http://localhost:4001/api/",
+  prod = "https://game-tasks-server.onrender.com:4001/api/",
 }
 
 export const tasksApi = createApi({
