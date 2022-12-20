@@ -20,7 +20,7 @@ const Page: FC = () => {
 
   return (
     <>
-      <hr id="topPosition" ref={topRef} />
+      <hr id="topPosition" ref={topRef} style={{ position: "fixed", top: 0 }} />
       <Routes>
         <Route path="" element={<HomePage />} />
         <Route path="/tasks" element={<TasksListPage />} />

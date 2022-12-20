@@ -26,10 +26,11 @@
   }
 }
 
-// @media (max-width: 500px) {
-//   .toolsControllers {
-//     ul {
-//       position: fixed;
-//     }
-//   }
-// }
+@media (max-width: 500px) {
+  .toolsControllers {
+    ul {
+      position: fixed;
+      display: none;
+    }
+  }
+}
