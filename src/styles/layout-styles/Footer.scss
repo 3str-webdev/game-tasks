@@ -5,6 +5,7 @@
   justify-content: space-between;
   background-color: $footerBg;
   padding: $footerPadding;
+  padding-bottom: 200px;
   margin-top: 150px;
 
   .gh-link {
@@ -78,7 +79,6 @@
   .react-footer {
     .foolerBlocks {
       flex-direction: column;
-      
     }
   }
 }

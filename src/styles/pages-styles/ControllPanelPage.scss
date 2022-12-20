@@ -1,5 +1,8 @@
 .controllPanelPage {
   .toolsWrapper {
+    grid-template-columns: 1fr;
+    display: grid;
+    justify-content: center;
     padding-top: 50px;
   }
 }
