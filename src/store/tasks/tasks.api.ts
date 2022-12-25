@@ -11,11 +11,13 @@ export const tasksApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: BaseUrlMode.prod,
   }),
+  tagTypes: ["Tasks"],
   endpoints: (build) => ({
     getAllTasks: build.query<ITask[], void>({
       query: () => ({
         url: "/tasks/getAll",
       }),
+      providesTags: (result) => ["Tasks"],
     }),
 
     getTaskById: build.query<ITask, number | string>({
@@ -24,6 +26,7 @@ export const tasksApi = createApi({
         crossDomain: true,
         responseType: "json",
       }),
+      providesTags: (result) => ["Tasks"],
     }),
 
     addTask: build.mutation<ITask, IPostRequest>({
@@ -34,6 +37,7 @@ export const tasksApi = createApi({
         crossDomain: true,
         responseType: "json",
       }),
+      invalidatesTags: ["Tasks"],
     }),
 
     deleteTask: build.mutation<ITask[], IPostRequest>({
@@ -44,6 +48,7 @@ export const tasksApi = createApi({
         crossDomain: true,
         responseType: "json",
       }),
+      invalidatesTags: ["Tasks"],
     }),
 
     updateTask: build.mutation<ITask[], IPostRequest>({
@@ -54,6 +59,7 @@ export const tasksApi = createApi({
         crossDomain: true,
         responseType: "json",
       }),
+      invalidatesTags: ["Tasks"],
     }),
   }),
 });

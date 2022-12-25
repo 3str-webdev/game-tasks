@@ -8,14 +8,12 @@ import { useAppSelector } from "../../../../../hooks/redux";
 interface IDeleteTasksItem {
   task: ITask;
   deleteTaskTrigger: any;
-  updateTasksList: any;
   isDeleteLoading: boolean;
 }
 
 const DeleteTasksItem: FC<IDeleteTasksItem> = ({
   task,
   deleteTaskTrigger,
-  updateTasksList,
   isDeleteLoading,
 }) => {
   const password = useAppSelector((state) => state.requestReduser);
@@ -27,7 +25,6 @@ const DeleteTasksItem: FC<IDeleteTasksItem> = ({
         taskId: task.taskId,
       },
     });
-    updateTasksList();
   };
 
   return (

@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import List from "../../../List/List";
 import LoadWrapper from "../../../LoadWrapper/LoadWrapper";
 import DeleteTasksItem from "./DeleteTasksItem/DeleteTasksItem";
@@ -7,31 +7,26 @@ import { useShowAlert } from "../../../../hooks/useShowAlert";
 
 import {
   useDeleteTaskMutation,
-  useLazyGetAllTasksQuery,
+  useGetAllTasksQuery,
 } from "../../../../store/tasks/tasks.api";
 
 import "./DeleteTaskTool.scss";
 import { AlertVariants } from "../../../UI/Alert/Alert.props";
 
 const DeleteTasksTool: FC = () => {
-  const [getAllTasksTrigger, { isError, isLoading, data: tasks }] =
-    useLazyGetAllTasksQuery();
+  const { isError, isLoading, data: tasks } =
+    useGetAllTasksQuery();
   const [
     deleteTaskTrigger,
     {
       isError: isDeleteError,
       isLoading: isDeleteLoading,
       isSuccess: isDeleteSuccess,
-      data: currentTasks,
     },
   ] = useDeleteTaskMutation();
 
   const isShowErrorAlert = useShowAlert(isDeleteError);
   const isSuccessErrorAlert = useShowAlert(isDeleteSuccess);
-
-  useEffect(() => {
-    getAllTasksTrigger();
-  }, [getAllTasksTrigger, currentTasks]);
 
   return (
     <section className="DeleteTasksTool">
@@ -41,7 +36,6 @@ const DeleteTasksTool: FC = () => {
           renderItem={(task) => (
             <DeleteTasksItem
               deleteTaskTrigger={deleteTaskTrigger}
-              updateTasksList={getAllTasksTrigger}
               isDeleteLoading={isDeleteLoading}
               task={task}
               key={task.id}
