@@ -9,6 +9,8 @@ import { IAddTaskFormData } from "../../../../../types/types";
 import LoadWrapper from "../../../../LoadWrapper/LoadWrapper";
 import TaskForm from "../../../../TaskForm/TaskForm";
 
+import "./EditTaskForm.scss";
+
 const EditTaskForm: FC = () => {
   const currentTaskId = useParams().taskId ?? "";
 
@@ -51,7 +53,7 @@ const EditTaskForm: FC = () => {
   };
 
   return (
-    <>
+    <div className="EditTaskFormWrapper">
       <LoadWrapper isError={isError} isLoading={isLoading}>
         <TaskForm
           defaultValue={defaultValue}
@@ -63,7 +65,7 @@ const EditTaskForm: FC = () => {
           resetAfterSubmit={false}
         />
       </LoadWrapper>
-    </>
+    </div>
   );
 };
 
