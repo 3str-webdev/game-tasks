@@ -21,6 +21,16 @@ body {
   color: $textColor;
 }
 
+::-moz-selection {
+  color: $lightTextColor;
+  background: $accent;
+}
+
+::selection {
+  color: $lightTextColor;
+  background: $accent;
+}
+
 .link {
   text-decoration: none;
 }
