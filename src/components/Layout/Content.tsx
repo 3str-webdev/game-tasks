@@ -1,12 +1,13 @@
 import { FC, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Footer from "./Footer";
 
 interface ContentProps {
   children: React.ReactNode;
-  footer?: React.FC | React.ReactElement | undefined;
+  footer?: boolean;
 }
 
-const Content: FC<ContentProps> = ({ children, footer = <></> }) => {
+const Content: FC<ContentProps> = ({ children, footer = false }) => {
   const topRef = useRef<HTMLDivElement>(null);
   const location = useLocation().pathname;
 
@@ -23,7 +24,7 @@ const Content: FC<ContentProps> = ({ children, footer = <></> }) => {
       <div className="wrapper" ref={topRef}>
         <>
           <div className="react-content-wrapper">{children}</div>
-          {footer}
+          {footer && <Footer />}
         </>
       </div>
     </section>
