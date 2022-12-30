@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { navigationLinks } from "../../routes/AppRoutes/links";
 
 const Header: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -24,26 +25,20 @@ const Header: FC = () => {
         onClick={closeMenu}
       >
         <ul className="list">
-          <li>
-            <NavLink
-              className={(navData) =>
-                navData.isActive ? "link active" : "link"
-              }
-              to={""}
-            >
-              Главная
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={(navData) =>
-                navData.isActive ? "link active" : "link"
-              }
-              to={"tasks"}
-            >
-              Задачи
-            </NavLink>
-          </li>
+          {navigationLinks.map(({ to, title }) => {
+            return (
+              <li>
+                <NavLink
+                  className={(navData) =>
+                    navData.isActive ? "link active" : "link"
+                  }
+                  to={to}
+                >
+                  {title}
+                </NavLink>
+              </li>
+            );
+          })}
         </ul>
       </nav>
       <button className="burger" onClick={openMenu}></button>

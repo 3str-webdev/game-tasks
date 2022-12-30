@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { BsGithub } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
+import { usefulLinks } from "../../routes/FooterRoutes/links";
+import { navigationLinks } from "../../routes/AppRoutes/links";
 
 const Footer: FC = () => {
   return (
@@ -19,24 +21,26 @@ const Footer: FC = () => {
         <section className="navLinksWrapper footerBlock">
           <h3 className="title">Навигация</h3>
           <div className="links">
-            <NavLink to={"/"} className="link">
-              Главная
-            </NavLink>
-            <NavLink to={"/tasks"} className="link">
-              Задачи
-            </NavLink>
+            {navigationLinks.map(({ to, title }) => {
+              return (
+                <NavLink to={to} className="link">
+                  {title}
+                </NavLink>
+              );
+            })}
           </div>
         </section>
 
         <section className="usefulLinksWrapper footerBlock">
           <h3 className="title">Полезные ссылки</h3>
           <div className="links">
-            <NavLink to={"/tasks/panel"} className="link">
-              Панель управления
-            </NavLink>
-            <NavLink to={"/contactus"} className="link">
-              Контакты
-            </NavLink>
+            {usefulLinks.map(({ to, title }) => {
+              return (
+                <NavLink to={to} className="link">
+                  {title}
+                </NavLink>
+              );
+            })}
           </div>
         </section>
       </section>

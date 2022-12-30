@@ -1,10 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
-import ContactPage from "./pages/ContactPage/ContactPage";
-import ControllPanelPage from "./pages/ControllPanelPage/ControllPanelPage";
-import HomePage from "./pages/HomePage/HomePage";
-import TaskPage from "./pages/TaskPage/TaskPage";
-import TasksListPage from "./pages/TasksListPage/TasksListPage";
+import { appRoutes } from "./routes/AppRoutes/routes";
 
 import "./styles/app.scss";
 
@@ -13,11 +9,9 @@ function App() {
     <div className="App">
       <Layout>
         <Routes>
-          <Route path="" element={<HomePage />} />
-          <Route path="/tasks" element={<TasksListPage />} />
-          <Route path="/tasks/:taskId" element={<TaskPage />} />
-          <Route path="/tasks/panel/*" element={<ControllPanelPage />} />
-          <Route path="/contactus" element={<ContactPage />} />
+          {appRoutes.map(({ path, element }) => {
+            return <Route path={path} element={element} />;
+          })}
         </Routes>
       </Layout>
     </div>
