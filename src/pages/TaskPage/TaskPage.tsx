@@ -18,10 +18,6 @@ const TaskPage: FC = () => {
   const hiddenTaskAnswerHeight =
     hiddenTaskAnswerRef.current?.getBoundingClientRect().height;
 
-  const normalizeValue = (value: string | undefined) => {
-    return value?.split("\n").join("<br />") ?? "";
-  };
-
   return (
     <>
       <div className="controlls">
@@ -34,18 +30,18 @@ const TaskPage: FC = () => {
         <div className="taskCard">
           <LoadWrapper isError={isError} isLoading={isLoading}>
             <HtmlDiv
-              content={normalizeValue(task?.title)}
+              content={task?.title}
               className="taskTitle taskInfoBlock"
             />
 
             <HtmlDiv
-              content={`Тема задачи • ${normalizeValue(task?.theme)}`}
+              content={`Тема задачи • ${task?.theme}`}
               className="taskSubTitle taskInfoBlock"
             />
 
             <HtmlDiv
               className="taskText taskInfoBlock"
-              content={normalizeValue(task?.text)}
+              content={task?.text}
             />
 
             <div className="taskAnswerWrapper taskInfoBlock">
@@ -54,7 +50,7 @@ const TaskPage: FC = () => {
                 ref={hiddenTaskAnswerRef}
                 dangerouslySetInnerHTML={{
                   __html:
-                    task !== undefined ? normalizeValue(task?.answer) : "",
+                    task !== undefined ? task?.answer : "",
                 }}
               />
 
@@ -69,7 +65,7 @@ const TaskPage: FC = () => {
               </span>
 
               <HtmlDiv
-                content={normalizeValue(task?.answer)}
+                content={task?.answer}
                 className={"taskAnswer"}
                 style={{
                   height: isShowAnswer ? hiddenTaskAnswerHeight : 0,
