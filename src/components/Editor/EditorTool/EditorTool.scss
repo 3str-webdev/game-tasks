@@ -1,0 +1,16 @@
+@import "../../../styles/vars.scss";
+
+.editorTool {
+  display: inline-block;
+  text-align: center;
+
+  border: 1px solid $accent;
+  padding: 0px 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.editorTool.active {
+  background: $accent;
+  color: $bgColor;
+}

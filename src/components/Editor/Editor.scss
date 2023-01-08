@@ -1,0 +1,47 @@
+@import "../../styles/vars.scss";
+
+.Editor {
+  display: flex;
+  flex-direction: column;
+
+  .editorTitle {
+    padding: 7px 0;
+    font-weight: bold;
+  }
+
+  .editorTabs {
+    .tab {
+      padding: 10px 5px;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      outline: 1px solid $accent;
+    }
+  }
+
+  .editorContent {
+    margin-top: 20px;
+    .editorTextWrapper {
+      .editorTools {
+        ul {
+          list-style: none;
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+      }
+      .editorFields {
+        margin-top: 5px;
+        .editorText {
+          width: 100%;
+          background: transparent;
+          resize: none;
+          min-height: 200px;
+          outline: none;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}

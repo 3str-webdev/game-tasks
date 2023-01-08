@@ -23,7 +23,7 @@ const Footer: FC = () => {
           <div className="links">
             {navigationLinks.map(({ to, title }) => {
               return (
-                <NavLink to={to} className="link">
+                <NavLink key={to} to={to} className="link">
                   {title}
                 </NavLink>
               );
@@ -36,7 +36,7 @@ const Footer: FC = () => {
           <div className="links">
             {usefulLinks.map(({ to, title }) => {
               return (
-                <NavLink to={to} className="link">
+                <NavLink key={to} to={to} className="link">
                   {title}
                 </NavLink>
               );

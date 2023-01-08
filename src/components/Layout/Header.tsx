@@ -27,7 +27,7 @@ const Header: FC = () => {
         <ul className="list">
           {navigationLinks.map(({ to, title }) => {
             return (
-              <li>
+              <li key={to}>
                 <NavLink
                   className={(navData) =>
                     navData.isActive ? "link active" : "link"

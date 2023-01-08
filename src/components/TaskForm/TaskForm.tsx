@@ -10,6 +10,7 @@ import { IAddTaskFormData } from "../../types/types";
 import { ITaskFormProps } from "./TaskForm.props";
 
 import "./TaskForm.scss";
+import Editor from "../Editor/Editor";
 
 const TaskForm: FC<ITaskFormProps> = ({
   defaultValue,
@@ -61,8 +62,8 @@ const TaskForm: FC<ITaskFormProps> = ({
             }
           />
         </div>
-        <InputArea
-          title="Текст задачи"
+        <Editor
+          title="Текст Задачи"
           value={formData.text}
           onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
             updateFormData(e, "text")
